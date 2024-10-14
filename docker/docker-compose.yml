@@ -1,0 +1,27 @@
+version: '3.9'
+services:
+  sql_server:
+    container_name: bmserver
+    image: "mcr.microsoft.com/mssql/server:2022-latest"
+    ports:
+      - "9876:1433"
+    volumes:
+      - bm-db-volume:/var/lib/mssql/data
+    env_file:
+      - bmserver/bmserver.env
+
+  dev-env:
+    container_name: bm-dev
+    build:
+      context: ./bm-dev
+    volumes:
+      - "..:/budgetmaster"
+    stdin_open: true  # docker run -i
+    tty: true        # docker run -t
+    x-develop:
+      watch:
+        target: ..
+        volume: /budgetmaster
+
+volumes:
+  sas-db-volume: null
