@@ -1,0 +1,39 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "RunClient",
+            "type": "blazorwasm",
+            "request": "launch",
+            "preLaunchTask": "build-client",
+            "cwd": "${workspaceFolder}/src/BudgetMaster.WebUI",
+            "url": "https://localhost:5900"
+        },
+        {
+            "name": "RunSasService",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-sas-service",
+            "program": "${workspaceFolder}/Sas.Service/bin/Debug/net8.0/Sas.Service.dll",
+            "cwd": "${workspaceFolder}/Sas.Service",
+            "stopAtEntry": false,
+            "console": "integratedTerminal"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Run Server",
+            "configurations": [
+                "RunSasService",
+                "RunUserService"
+            ]
+        },
+        {
+            "name": "Run All",
+            "configurations": [
+                "RunSasService",
+                "RunClient"
+            ]
+        }
+    ]
+}
