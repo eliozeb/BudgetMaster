@@ -2,38 +2,24 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "RunClient",
-            "type": "blazorwasm",
-            "request": "launch",
-            "preLaunchTask": "build-client",
-            "cwd": "${workspaceFolder}/src/BudgetMaster.WebUI",
-            "url": "https://localhost:5900"
-        },
-        {
-            "name": "RunSasService",
+            "name": "Launch BudgetMaster.WebUI",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build-sas-service",
-            "program": "${workspaceFolder}/Sas.Service/bin/Debug/net8.0/Sas.Service.dll",
-            "cwd": "${workspaceFolder}/Sas.Service",
+            "preLaunchTask": "build-BudgetMaster.WebUI",
+            "program": "${workspaceFolder}/src/BudgetMaster.WebUI/bin/Debug/net8.0/BudgetMaster.WebUI.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/BudgetMaster.WebUI",
             "stopAtEntry": false,
-            "console": "integratedTerminal"
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ConnectionStrings__DefaultConnection": "Server=sql_server;Database=BudgetMasterDb;User ID=sa;Password=YourStrong!Passw0rd;"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/src/BudgetMaster.WebUI/Views"
+            },
+            "dotnetRunMessages": true,
+            "justMyCode": true
         }
     ],
-    "compounds": [
-        {
-            "name": "Run Server",
-            "configurations": [
-                "RunSasService",
-                "RunUserService"
-            ]
-        },
-        {
-            "name": "Run All",
-            "configurations": [
-                "RunSasService",
-                "RunClient"
-            ]
-        }
-    ]
+    "compounds": []
 }
