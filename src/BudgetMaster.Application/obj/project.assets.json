@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "BudgetMaster.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/BudgetMaster.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BudgetMaster.Domain.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "BudgetMaster.Domain/1.0.0": {
+      "type": "project",
+      "path": "../BudgetMaster.Domain/BudgetMaster.Domain.csproj",
+      "msbuildProject": "../BudgetMaster.Domain/BudgetMaster.Domain.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "BudgetMaster.Domain >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\me\\.nuget\\packages\\": {},
@@ -39,7 +58,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Project\\BudgetMaster\\src\\BudgetMaster.Domain\\BudgetMaster.Domain.csproj": {
+              "projectPath": "C:\\Project\\BudgetMaster\\src\\BudgetMaster.Domain\\BudgetMaster.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
