@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BudgetMaster.Application\BudgetMaster.Application.csproj" />
+    <ProjectReference Include="..\BudgetMaster.Application\BudgetMaster.Domain.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
