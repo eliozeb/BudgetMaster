@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetMaster.Application", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetMaster.Infrastructure", "src\BudgetMaster.Infrastructure\BudgetMaster.Infrastructure.csproj", "{3B0FB210-9BE8-4480-8DB9-62A69982041E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetMaster.WebUI", "src\BudgetMaster.WebUI\BudgetMaster.WebUI.csproj", "{47B1C6F5-7CB9-4A1E-A1BA-5F8880F25A05}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetMaster.API", "src\BudgetMaster.API\BudgetMaster.API.csproj", "{47B1C6F5-7CB9-4A1E-A1BA-5F8880F25A05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

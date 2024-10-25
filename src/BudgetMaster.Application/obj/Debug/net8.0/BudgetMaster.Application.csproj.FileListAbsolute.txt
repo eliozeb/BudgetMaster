@@ -1,0 +1,16 @@
+/budgetmaster/src/BudgetMaster.Application/bin/Debug/net8.0/BudgetMaster.Application.deps.json
+/budgetmaster/src/BudgetMaster.Application/bin/Debug/net8.0/BudgetMaster.Application.dll
+/budgetmaster/src/BudgetMaster.Application/bin/Debug/net8.0/BudgetMaster.Application.pdb
+/budgetmaster/src/BudgetMaster.Application/bin/Debug/net8.0/BudgetMaster.Domain.dll
+/budgetmaster/src/BudgetMaster.Application/bin/Debug/net8.0/BudgetMaster.Domain.pdb
+/budgetmaster/src/BudgetMaster.Application/obj/Debug/net8.0/BudgetMaster.Application.csproj.AssemblyReference.cache
+/budgetmaster/src/BudgetMaster.Application/obj/Debug/net8.0/BudgetMaster.Application.GeneratedMSBuildEditorConfig.editorconfig
+/budgetmaster/src/BudgetMaster.Application/obj/Debug/net8.0/BudgetMaster.Application.AssemblyInfoInputs.cache
+/budgetmaster/src/BudgetMaster.Application/obj/Debug/net8.0/BudgetMaster.Application.AssemblyInfo.cs
+/budgetmaster/src/BudgetMaster.Application/obj/Debug/net8.0/BudgetMaster.Application.csproj.CoreCompileInputs.cache
+/budgetmaster/src/BudgetMaster.Application/obj/Debug/net8.0/BudgetMaster.Application.sourcelink.json
+/budgetmaster/src/BudgetMaster.Application/obj/Debug/net8.0/BudgetMa.C95A1734.Up2Date
+/budgetmaster/src/BudgetMaster.Application/obj/Debug/net8.0/BudgetMaster.Application.dll
+/budgetmaster/src/BudgetMaster.Application/obj/Debug/net8.0/refint/BudgetMaster.Application.dll
+/budgetmaster/src/BudgetMaster.Application/obj/Debug/net8.0/BudgetMaster.Application.pdb
+/budgetmaster/src/BudgetMaster.Application/obj/Debug/net8.0/ref/BudgetMaster.Application.dll

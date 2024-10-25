@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "gG48ffAtU9N3SiQUUX0lyZjAKy+rHpf1XfdJEX6i/pQ=",
+  "Source": "BudgetMaster.API",
+  "BasePath": "_content/BudgetMaster.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

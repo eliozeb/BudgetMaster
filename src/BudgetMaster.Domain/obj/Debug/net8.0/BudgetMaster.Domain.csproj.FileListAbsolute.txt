@@ -1,0 +1,15 @@
+/budgetmaster/src/BudgetMaster.Domain/bin/Debug/net8.0/BudgetMaster.Domain.deps.json
+/budgetmaster/src/BudgetMaster.Domain/bin/Debug/net8.0/BudgetMaster.Domain.runtimeconfig.json
+/budgetmaster/src/BudgetMaster.Domain/bin/Debug/net8.0/BudgetMaster.Domain.dll
+/budgetmaster/src/BudgetMaster.Domain/bin/Debug/net8.0/BudgetMaster.Domain.pdb
+/budgetmaster/src/BudgetMaster.Domain/obj/Debug/net8.0/BudgetMaster.Domain.csproj.AssemblyReference.cache
+/budgetmaster/src/BudgetMaster.Domain/obj/Debug/net8.0/BudgetMaster.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/budgetmaster/src/BudgetMaster.Domain/obj/Debug/net8.0/BudgetMaster.Domain.AssemblyInfoInputs.cache
+/budgetmaster/src/BudgetMaster.Domain/obj/Debug/net8.0/BudgetMaster.Domain.AssemblyInfo.cs
+/budgetmaster/src/BudgetMaster.Domain/obj/Debug/net8.0/BudgetMaster.Domain.csproj.CoreCompileInputs.cache
+/budgetmaster/src/BudgetMaster.Domain/obj/Debug/net8.0/BudgetMaster.Domain.sourcelink.json
+/budgetmaster/src/BudgetMaster.Domain/obj/Debug/net8.0/BudgetMaster.Domain.dll
+/budgetmaster/src/BudgetMaster.Domain/obj/Debug/net8.0/refint/BudgetMaster.Domain.dll
+/budgetmaster/src/BudgetMaster.Domain/obj/Debug/net8.0/BudgetMaster.Domain.pdb
+/budgetmaster/src/BudgetMaster.Domain/obj/Debug/net8.0/BudgetMaster.Domain.genruntimeconfig.cache
+/budgetmaster/src/BudgetMaster.Domain/obj/Debug/net8.0/ref/BudgetMaster.Domain.dll

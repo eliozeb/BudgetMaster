@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BudgetMaster.WebUI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6c3d0bd7301894e6f1291b5f629421f33aaf9488")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ba424ec5aaca64d09262f1a0299d3e3b323f472d")]
 [assembly: System.Reflection.AssemblyProductAttribute("BudgetMaster.WebUI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BudgetMaster.WebUI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

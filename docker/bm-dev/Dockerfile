@@ -11,7 +11,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS base
     apt-get -y install --no-install-recommends vim && \
     curl -sSL https://get.docker.com/ | sh
 
-RUN dotnet tool install -g dotnet-ef
+RUN dotnet tool install -g dotnet-ef --version 8.0.10
 ENV PATH $PATH:/root/.dotnet/tools
 
 # configure for https

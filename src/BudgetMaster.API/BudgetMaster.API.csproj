@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <ItemGroup>
-    <ProjectReference Include="..\BudgetMaster.Domain\BudgetMaster.Infrastructure.csproj" />
-    <ProjectReference Include="..\BudgetMaster.Domain\BudgetMaster.Application.csproj" />
+    <ProjectReference Include="..\BudgetMaster.Infrastructure\BudgetMaster.Infrastructure.csproj" />
+    <ProjectReference Include="..\BudgetMaster.Application\BudgetMaster.Application.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
@@ -12,7 +12,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
