@@ -8,6 +8,7 @@
 /budgetmaster/src/BudgetMaster.API/bin/Debug/net8.0/Azure.Core.dll
 /budgetmaster/src/BudgetMaster.API/bin/Debug/net8.0/Azure.Identity.dll
 /budgetmaster/src/BudgetMaster.API/bin/Debug/net8.0/Humanizer.dll
+/budgetmaster/src/BudgetMaster.API/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /budgetmaster/src/BudgetMaster.API/bin/Debug/net8.0/Microsoft.AspNetCore.Cryptography.Internal.dll
 /budgetmaster/src/BudgetMaster.API/bin/Debug/net8.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 /budgetmaster/src/BudgetMaster.API/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

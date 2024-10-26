@@ -1,12 +1,11 @@
 using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 
-namespace BudgetMaster.API.Middleware
+namespace BudgetMaster.API.Middlewares
 {
     public class TenantMiddleware
     {
-        private readonly RequestDelegate _next = default!;
-
+        private readonly RequestDelegate _next;
         public TenantMiddleware(RequestDelegate next)
         {
             _next = next;
@@ -14,17 +13,18 @@ namespace BudgetMaster.API.Middleware
 
         public async Task InvokeAsync(HttpContext context)
         {
-            if (context.Request.Headers.TryGetValue("X-Tenant-ID", out var tenantId))
+            // Extract tenant ID from header, query, or route
+            var tenantId = context.Request.Headers["Tenant-ID"].FirstOrDefault();
+
+            if (string.IsNullOrEmpty(tenantId))
             {
-                context.Items["TenantId"] = tenantId.ToString();
-            }
-            else
-            {
-                // Handle missing tenant ID
                 context.Response.StatusCode = StatusCodes.Status400BadRequest;
                 await context.Response.WriteAsync("Tenant ID is missing.");
                 return;
             }
+
+            // Store tenant ID in HttpContext for later use
+            context.Items["TenantId"] = tenantId;
 
             await _next(context);
         }

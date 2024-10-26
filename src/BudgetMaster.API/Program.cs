@@ -1,13 +1,18 @@
 using BudgetMaster.Infrastructure.DependencyInjection;
-using BudgetMaster.API.Middleware;
+using BudgetMaster.API.Middlewares;
 using BudgetMaster.Infrastructure.Identity;
-using Microsoft.AspNetCore.Builder;
+/* using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using BudgetMaster.Application.Interfaces;
-using BudgetMaster.Infrastructure.Services;
+using BudgetMaster.Infrastructure.Services; */
 using BudgetMaster.Infrastructure.Data;
 using Microsoft.AspNetCore.Identity;
+
+//Configure Authentication Services:
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,6 +41,29 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
+var key = builder.Configuration["JwtSettings:SecretKey"];
+var issuer = builder.Configuration["JwtSettings:Issuer"];
+var audience = builder.Configuration["JwtSettings:Audience"];
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = issuer,
+        ValidAudience = audience,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key!))
+    };
+});
+
 // Build the app
 var app = builder.Build();
 
@@ -56,7 +84,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 // app.UseEndpoints(endpoints =>
-// {
+// {jm
 //     endpoints.MapControllers();
 // });
 

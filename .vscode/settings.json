@@ -1,4 +1,19 @@
 {
+    "dotnet.defaultSolution": "BudgetMaster.sln",
     "thunder-client.saveToWorkspace": true,
-    "thunder-client.workspaceRelativePath": ".thunder-client"
+    "thunder-client.workspaceRelativePath": ".thunder-client",
+    "terminal.integrated.env.windows": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+    },
+    "terminal.integrated.env.linux": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+    },
+    "terminal.integrated.env.osx": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+    },
+    "csharp.format.enable": true,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    }
 }
