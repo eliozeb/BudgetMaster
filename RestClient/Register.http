@@ -1,0 +1,9 @@
+### Register User
+POST http://localhost:5000/api/account/register
+Content-Type: application/json
+Tenant-ID: tenant1
+
+{
+  "email": "john.doe@example.com",
+  "password": "P@$0rd123w"
+}

@@ -40,7 +40,7 @@ namespace BudgetMaster.Infrastructure.Data
             optionsBuilder.UseSqlServer(connectionString);
 
             // Create instance of ApplicationDbContext
-            return new ApplicationDbContext(optionsBuilder.Options);
+            return new ApplicationDbContext(optionsBuilder.Options, configuration);
         }
     }
 }

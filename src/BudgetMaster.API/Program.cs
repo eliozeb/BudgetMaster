@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +25,19 @@ builder.Services.AddControllers();
 
 // Add HttpContextAccessor
 builder.Services.AddHttpContextAccessor();
+
+// Add ApplicationDbContext factory
+builder.Services.AddDbContextFactory<ApplicationDbContext>((serviceProvider, options) =>
+{
+    // Optional: You can configure options here if needed
+    // Since ApplicationDbContext.OnConfiguring handles the configuration,
+    // you might leave this empty or configure logging if desired.
+
+    // Example: Enable sensitive data logging (for development purposes only)
+    options.EnableSensitiveDataLogging();
+
+    // If you have any global configurations, you can set them here.
+});
 
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration); // IConfiguration is usually registered by default
 

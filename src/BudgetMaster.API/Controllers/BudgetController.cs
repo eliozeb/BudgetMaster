@@ -1,27 +1,26 @@
+using BudgetMaster.Infrastructure.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
-
-namespace BudgetMaster.API.Controllers
+[ApiController]
+[Route("api/[controller]")]
+public class BudgetController : ControllerBase
 {
-    [Authorize]
-    [ApiController]
-    [Route("api/[controller]")]
-    public class BudgetController : ControllerBase
+    private readonly ApplicationDbContext _context;
+
+    public BudgetController(IDbContextFactory<ApplicationDbContext> dbContextFactory)
     {
-        // Actions...
+        var tenantId = HttpContext.Items["TenantId"]?.ToString();
 
-        //private readonly UserManager<ApplicationUser> _userManager;
+        if (string.IsNullOrEmpty(tenantId))
+        {
+            throw new InvalidOperationException("Tenant ID is missing.");
+        }
 
-       // [Authorize]
-       // [HttpGet("budgets")]
-        //public async Task<IActionResult> GetBudgets()
-       // {
-            //var tenantId = HttpContext.Items["TenantId"].ToString();
-            // Retrieve budgets for the tenant
-            //var budgets = await _budgetService.GetBudgetsForTenantAsync(tenantId);
-
-         //   return Ok(/*budgets*/);
-        //}
+        _context = dbContextFactory.CreateDbContext();
+        _context.SetTenantId(tenantId);
     }
+
+    // Actions...
 }

@@ -9,21 +9,18 @@ namespace BudgetMaster.Infrastructure.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        private readonly IHttpContextAccessor? _httpContextAccessor;
-        private readonly string? _tenantConnectionStringTemplate;
+        private readonly IConfiguration? _configuration;
+        private string? _tenantId;
 
-        public ApplicationDbContext()
-        {
-        }
-
-        public ApplicationDbContext(
-            DbContextOptions<ApplicationDbContext> options,
-            IHttpContextAccessor? httpContextAccessor = null,
-            IConfiguration? configuration = null)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IConfiguration configuration)
             : base(options)
         {
-            _httpContextAccessor = httpContextAccessor;
-            _tenantConnectionStringTemplate = configuration?.GetConnectionString("TenantConnection") ?? string.Empty;
+            _configuration = configuration;
+        }
+
+        public void SetTenantId(string tenantId)
+        {
+            _tenantId = tenantId;
         }
 
         // In your ApplicationDbContext.cs
@@ -31,26 +28,39 @@ namespace BudgetMaster.Infrastructure.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                var tenantId = _httpContextAccessor?.HttpContext?.Items["TenantId"]?.ToString();
-
-                if (!string.IsNullOrEmpty(tenantId))
+                if (string.IsNullOrEmpty(_tenantId))
                 {
-                    var connectionString = GetConnectionString(tenantId);
-                    optionsBuilder.UseSqlServer(connectionString);
+                    // Design-time context creation
+                    var tenantConnectionStringTemplate = _configuration!.GetConnectionString("MasterConnection");
+                    if (string.IsNullOrEmpty(tenantConnectionStringTemplate))
+                    {
+                        throw new InvalidOperationException("DefaultConnection string is not defined in the configuration.");
+                    }
+
+                    optionsBuilder.UseSqlServer(tenantConnectionStringTemplate);
                 }
                 else
                 {
-                    // Design-time scenario: use a default connection string
-                    optionsBuilder.UseSqlServer("MasterConnection");
+                    // Runtime context creation with tenant ID
+                    var tenantConnectionStringTemplate = _configuration!.GetConnectionString("TenantConnection")
+                        ?? throw new InvalidOperationException("TenantConnection string is not defined in the configuration.");
+
+                    var connectionString = GetConnectionString(_tenantId, tenantConnectionStringTemplate);
+
+                    optionsBuilder.UseSqlServer(connectionString, sqlOptions =>
+                    {
+                        sqlOptions.EnableRetryOnFailure();
+                    });
                 }
             }
         }
 
 
-        private string? GetConnectionString(string tenantId)
+
+        private string GetConnectionString(string tenantId, string connectionStringTemplate)
         {
             var tenantDbName = $"BudgetMaster_{tenantId}";
-            return _tenantConnectionStringTemplate!.Replace("{DatabaseName}", tenantDbName);
+            return connectionStringTemplate.Replace("{DatabaseName}", tenantDbName);
         }
 
         // DbSets for your entities
