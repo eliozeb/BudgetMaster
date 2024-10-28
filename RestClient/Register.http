@@ -1,9 +1,9 @@
 ### Register User
 POST http://localhost:5000/api/account/register
 Content-Type: application/json
-Tenant-ID: tenant1
+Tenant-ID: sas
 
 {
-  "email": "john.doe@example.com",
+  "email": "elias.zebene@google.com",
   "password": "P@$0rd123w"
 }

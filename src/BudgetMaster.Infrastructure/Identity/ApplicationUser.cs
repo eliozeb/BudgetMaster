@@ -1,11 +1,12 @@
 using BudgetMaster.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
-using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace BudgetMaster.Infrastructure.Identity
 {
     public class ApplicationUser : IdentityUser
     {
+        [Required]
         public string FullName { get; set; } = default!;
 
         // Navigation properties

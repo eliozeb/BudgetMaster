@@ -24,10 +24,14 @@ namespace BudgetMaster.API.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterModel model)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var user = new ApplicationUser
             {
                 UserName = model.Email,
-                Email = model.Email
+                Email = model.Email,
+                FullName = model.FullName // Assign FullName here
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
